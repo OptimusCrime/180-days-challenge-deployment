@@ -13,6 +13,8 @@ services:
       - "9000"
     env_file:
       - env_php_prod.env
+    volumes:
+      - ./backend/database:/code/database
 
   ###############################################
   #                 Migrations                  #
@@ -25,6 +27,8 @@ services:
       WAIT_HOSTS: codereviewgifs-prod-db:3306
     env_file:
       - env_php_prod.env
+    volumes:
+      - ./backend/database:/code/database
 
   ###############################################
   #                    Nginx                    #
