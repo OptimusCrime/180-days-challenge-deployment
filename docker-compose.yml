@@ -1,0 +1,41 @@
+version: '2'
+
+services:
+
+  ###############################################
+  #                     PHP                     #
+  ###############################################
+
+  challenge180days2022-prod-php:
+    image: "docker.pkg.github.com/optimuscrime/180-days-challenge-2022/180-days-challenge-2022-php:latest"
+    restart: unless-stopped
+    ports:
+      - "9000"
+    env_file:
+      - env_php_prod.env
+
+  ###############################################
+  #                 Migrations                  #
+  ###############################################
+
+  challenge180days2022-prod-migrations:
+    image: "docker.pkg.github.com/optimuscrime/180-days-challenge-2022/180-days-challenge-2022-migrations:latest"
+    restart: "no"
+    environment:
+      WAIT_HOSTS: codereviewgifs-prod-db:3306
+    env_file:
+      - env_php_prod.env
+
+  ###############################################
+  #                    Nginx                    #
+  ###############################################
+
+  challenge180days2022-prod-nginx:
+    image: "docker.pkg.github.com/optimuscrime/180-days-challenge-2022/180-days-challenge-2022-nginx:latest"
+    restart: unless-stopped
+    ports:
+      - "8094:80"
+    depends_on:
+      - challenge180days2022-prod-php
+    links:
+      - challenge180days2022-prod-php
