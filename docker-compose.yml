@@ -7,7 +7,7 @@ services:
   ###############################################
 
   challenge180days-prod-php:
-    image: "https://ghcr.io/optimuscrime/180-days-challenge/180-days-challenge-php:latest"
+    image: "ghcr.io/optimuscrime/180-days-challenge/180-days-challenge-php:latest"
     restart: unless-stopped
     mem_limit: 64m
     ports:
@@ -22,7 +22,7 @@ services:
   ###############################################
 
   challenge180days-prod-migrations:
-    image: "https://ghcr.io/optimuscrime/180-days-challenge/180-days-challenge-migrations:latest"
+    image: "ghcr.io/optimuscrime/180-days-challenge/180-days-challenge-migrations:latest"
     restart: "no"
     mem_limit: 64m
     environment:
@@ -37,7 +37,7 @@ services:
   ###############################################
 
   challenge180days-prod-nginx:
-    image: "https://ghcr.io/optimuscrime/180-days-challenge/180-days-challenge-nginx:latest"
+    image: "ghcr.io/optimuscrime/180-days-challenge/180-days-challenge-nginx:latest"
     restart: unless-stopped
     mem_limit: 64m
     ports:
