@@ -6,9 +6,10 @@ services:
   #                     PHP                     #
   ###############################################
 
-  challenge180days2022-prod-php:
-    image: "docker.pkg.github.com/optimuscrime/180-days-challenge-2022/180-days-challenge-2022-php:latest"
+  challenge180days-prod-php:
+    image: "https://ghcr.io/optimuscrime/180-days-challenge/180-days-challenge-php:latest"
     restart: unless-stopped
+    mem_limit: 64m
     ports:
       - "9000"
     env_file:
@@ -20,9 +21,10 @@ services:
   #                 Migrations                  #
   ###############################################
 
-  challenge180days2022-prod-migrations:
-    image: "docker.pkg.github.com/optimuscrime/180-days-challenge-2022/180-days-challenge-2022-migrations:latest"
+  challenge180days-prod-migrations:
+    image: "https://ghcr.io/optimuscrime/180-days-challenge/180-days-challenge-migrations:latest"
     restart: "no"
+    mem_limit: 64m
     environment:
       WAIT_HOSTS: codereviewgifs-prod-db:3306
     env_file:
@@ -34,9 +36,10 @@ services:
   #                    Nginx                    #
   ###############################################
 
-  challenge180days2022-prod-nginx:
-    image: "docker.pkg.github.com/optimuscrime/180-days-challenge-2022/180-days-challenge-2022-nginx:latest"
+  challenge180days-prod-nginx:
+    image: "https://ghcr.io/optimuscrime/180-days-challenge/180-days-challenge-nginx:latest"
     restart: unless-stopped
+    mem_limit: 64m
     ports:
       - "8094:80"
     depends_on:
