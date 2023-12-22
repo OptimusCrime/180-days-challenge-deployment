@@ -43,6 +43,6 @@ services:
     ports:
       - "8094:80"
     depends_on:
-      - challenge180days2022-prod-php
+      - challenge180days-prod-php
     links:
-      - challenge180days2022-prod-php
+      - challenge180days-prod-php
