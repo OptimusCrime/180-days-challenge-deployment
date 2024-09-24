@@ -1,5 +1,4 @@
 services:
-
   challenge180days-prod-php:
     image: "ghcr.io/optimuscrime/180-days-challenge/180-days-challenge-php:latest"
     restart: unless-stopped
