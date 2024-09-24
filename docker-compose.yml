@@ -1,10 +1,4 @@
-version: '2'
-
 services:
-
-  ###############################################
-  #                     PHP                     #
-  ###############################################
 
   challenge180days-prod-php:
     image: "ghcr.io/optimuscrime/180-days-challenge/180-days-challenge-php:latest"
@@ -17,10 +11,6 @@ services:
     volumes:
       - ./backend/database:/code/database
 
-  ###############################################
-  #                 Migrations                  #
-  ###############################################
-
   challenge180days-prod-migrations:
     image: "ghcr.io/optimuscrime/180-days-challenge/180-days-challenge-migrations:latest"
     restart: "no"
@@ -29,11 +19,7 @@ services:
       - env_php_prod.env
     volumes:
       - ./backend/database:/code/database
-
-  ###############################################
-  #                    Nginx                    #
-  ###############################################
-
+  
   challenge180days-prod-nginx:
     image: "ghcr.io/optimuscrime/180-days-challenge/180-days-challenge-nginx:latest"
     restart: unless-stopped
